@@ -1,0 +1,126 @@
+GIT COMMANDS USED IN THE ASSIGNMENT
+
+1. Create the project folder
+
+mkdir assignment Creates a new folder named git-assignment for the
+assignment.
+
+cd assignment Moves the Terminal’s current location into the project
+folder.
+
+touch index.html about.html Creates the two required HTML files.
+
+2. Initialize the local Git repository
+
+git init Initializes a new Git repository in the current folder so Git
+can track changes.
+
+git branch -M main Renames the current branch to main.
+
+git status Displays the current state of the working directory and
+staging area.
+
+git add . Stages all current, non-ignored files so they can be included
+in a commit.
+
+git commit -m “Added HTML pages” Creates the first commit,
+recording the initial HTML files in the repository history.
+
+3. Modify a file and create the second commit
+
+git add index.html Stages the changes made to index.html.
+
+git commit -m “updated index.html” Creates a third commit
+containing the updated home page.
+
+4. Create and work on the feature branch
+
+git branch feature Creates a new branch named feature.
+
+git switch feature Switches the working branch to feature.
+
+git add about.html Stages the changes made to about.html on the feature
+branch.
+
+git commit -m “updated index.html” Records the
+feature-branch changes in a new commit.
+
+5. Merge the feature branch into main
+
+git switch main Switches back to the main branch.
+
+git merge feature Merges the changes from feature into the current
+branch, main.
+
+git log –oneline –graph –all Displays a compact commit history for all
+branches, with a graph showing the branch and merge structure.
+
+6. Create and configure .gitignore
+
+touch .gitignore Creates the .gitignore file. Add the following two
+lines to that file:
+
+*.log temp/
+
+The *.log rule tells Git to ignore files ending in .log. The temp/ rule
+tells Git to ignore the temp folder and its contents.
+
+mkdir temp Creates a sample folder to check that the temp/ ignore rule
+works.
+
+touch test.log Creates a sample log file to check that the *.log ignore
+rule works.
+
+git status Checks the repository status. The ignored test.log file and
+temp folder should not appear as untracked files.
+
+git add .gitignore Stages the .gitignore file.
+
+git commit -m “Add gitignore rules” Commits the ignore rules to the
+repository.
+
+7. Demonstrate an undo operation with git revert
+
+After making and committing an additional change to index.html, run:
+
+git add index.html Stages the additional change to index.html.
+
+git commit -m “Temporary update” Creates an additional commit that
+will be undone in the next step.
+
+git revert –no-edit HEAD Creates a new commit that reverses the changes
+introduced by the latest commit. The original commit remains in the
+history.
+
+git log –oneline Displays the recent commit history, including the
+original commit and the new revert commit.
+
+git status Checks whether the working directory and staging area are
+clean.
+
+8. Connect the local repository to GitHub
+
+git remote add origin https://github.com/CKhubu/git-assignmentSGA2 Adds the public GitHub
+repository as a remote named origin. Replace the placeholder with the
+actual HTTPS URL of your GitHub repository.
+
+git remote -v Displays the configured remote repository URLs so the
+connection can be checked.
+
+git push -u origin main Pushes the main branch to GitHub and sets
+origin/main as its upstream branch.
+
+git push -u origin feature Pushes the feature branch to GitHub and sets
+origin/feature as its upstream branch.
+
+9. Useful final verification commands
+
+git branch Lists the local branches and marks the currently selected
+branch.
+
+git status Shows the final working-tree status.
+
+git log –oneline –graph –all Shows the complete commit history across
+the local branches.
+
+
